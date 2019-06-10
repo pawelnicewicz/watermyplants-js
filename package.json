@@ -1,0 +1,19 @@
+{
+  "name": "watermyplants",
+  "version": "0.0.1",
+  "description": "REST API for my Arduino to post moisture and temperature measurements",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paweł Nicewicz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.5.14",
+    "passport": "^0.4.0"
+  }
+}
