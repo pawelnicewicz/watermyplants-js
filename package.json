@@ -4,7 +4,9 @@
   "description": "REST API for my Arduino to post moisture and temperature measurements",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "local-run": "supervisor app.js"
   },
   "author": "Paweł Nicewicz",
   "license": "ISC",
@@ -15,5 +17,13 @@
     "express": "^4.17.1",
     "mongoose": "^5.5.14",
     "passport": "^0.4.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0"
   }
 }
