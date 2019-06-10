@@ -7,6 +7,10 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const path = require('path')
 const bodyParser = require('body-parser')
+const passport = require('passport')
+
+const errors = require('./libs/errors')
+const router = require('./routers/router')
 
 // *******************************************************************
 //                    EXPRESS.JS CONFIGURATION
@@ -25,6 +29,12 @@ app.use(bodyParser.json())
 // })
 
 // *******************************************************************
+//                     AUTH CONFIGURATION
+// *******************************************************************
+app.use(passport.initialize())
+require('./libs/passport')(passport)
+
+// *******************************************************************
 //                     DATABASE CONFIGURATION
 // *******************************************************************
 mongoose.set('useNewUrlParser', true)
@@ -40,12 +50,8 @@ mongoose.connection.on('error', error => {
 // *******************************************************************
 //                           ROUTING
 // *******************************************************************
-// -------------------------------------------------------------------
-//                        General routes
-// -------------------------------------------------------------------
-app.get('/', (req, res, next) => {
-  res.status(200).json({ status: 'success' })
-})
+app.use('/', router(express, passport, errors))
+
 // *******************************************************************
 //                           LISTENER
 // *******************************************************************
